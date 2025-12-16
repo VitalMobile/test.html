@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Izhar Yousaf | DevOps Specialist & Cloud Architect</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --accent: #06b6d4;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --card-bg: rgba(30, 41, 59, 0.5);
+            --border: rgba(148, 163, 184, 0.1);
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            --glow: 0 0 20px rgba(37, 99, 235, 0.3);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            color: var(--light);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 85% 30%, rgba(124, 58, 237, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 50% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 20%);
+            z-index: -1;
+        }
+
+        .portfolio-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Navigation */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 8rem 2rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            z-index: 10;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--glow);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: var(--glow);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(37, 99, 235, 0.5);
+            }
+
+            100% {
+                box-shadow: var(--glow);
+            }
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--light) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--light-gray);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--light);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .hero-profile {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-container {
+            position: relative;
+            width: 350px;
+            height: 350px;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Fallback image styling */
+        .profile-image.fallback {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+            font-weight: bold;
+        }
+
+        .profile-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center,
+                    rgba(37, 99, 235, 0.3) 0%,
+                    rgba(124, 58, 237, 0.2) 30%,
+                    transparent 70%);
+            border-radius: 50%;
+            filter: blur(20px);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .tech-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: rotate 30s linear infinite reverse;
+        }
+
+        .tech-icon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        /* Position tech icons */
+        .tech-icon:nth-child(1) {
+            top: 10%;
+            right: 10%;
+            background: linear-gradient(135deg, #FF9900 0%, #FF6600 100%);
+            color: white;
+        }
+
+        .tech-icon:nth-child(2) {
+            top: 60%;
+            right: 0;
+            background: linear-gradient(135deg, #4285F4 0%, #0F9D58 100%);
+            color: white;
+        }
+
+        .tech-icon:nth-child(3) {
+            bottom: 10%;
+            left: 20%;
+            background: linear-gradient(135deg, #2496ED 0%, #1D63ED 100%);
+            color: white;
+        }
+
+        .tech-icon:nth-child(4) {
+            top: 20%;
+            left: 0;
+            background: linear-gradient(135deg, #764ABC 0%, #562A9C 100%);
+            color: white;
+        }
+
+        /* Experience Badge */
+        .experience-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            margin-top: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .exp-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .exp-text strong {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--light);
+            margin-bottom: 0.25rem;
+        }
+
+        .exp-text span {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 6rem;
+            scroll-margin-top: 100px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--light);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            height: 100%;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow), var(--glow);
+        }
+
+        /* Experience */
+        .experience-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .experience-card {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .company-logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .experience-content h4 {
+            font-size: 1.5rem;
+            color: var(--light);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-meta {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .period {
+            color: var(--accent);
+            background: rgba(6, 182, 212, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+        }
+
+        .experience-description {
+            color: var(--light-gray);
+            line-height: 1.7;
+        }
+
+        .achievements {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .achievements li {
+            color: var(--light-gray);
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .achievements li::before {
+            content: '▸';
+            color: var(--primary);
+            position: absolute;
+            left: -1.5rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            margin-bottom: 2rem;
+        }
+
+        .skill-category h4 {
+            font-size: 1.25rem;
+            color: var(--light);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-item {
+            padding: 0.75rem 1.25rem;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: 9999px;
+            color: #a5b4fc;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-item:hover {
+            background: rgba(37, 99, 235, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+        }
+
+        .skill-item i {
+            font-size: 1rem;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .project-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .project-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            transition: var(--transition);
+            z-index: 10;
+            position: relative;
+        }
+
+        .project-link:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            color: var(--light);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            color: var(--light-gray);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            padding: 0.35rem 0.75rem;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 9999px;
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            height: 100%;
+            min-height: 140px;
+        }
+
+        .contact-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow), var(--glow);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h4 {
+            font-size: 1.1rem;
+            color: var(--light);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info a,
+        .contact-info p {
+            color: var(--accent);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+            word-break: break-all;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            font-size: 1.25rem;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--glow);
+        }
+
+        /* Certifications */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .certification-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+        }
+
+        .cert-badge {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .cert-info h4 {
+            color: var(--light);
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .cert-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        /* Project Details Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 2rem;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-container {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(20px);
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: sticky;
+            top: 0;
+            background: var(--card-bg);
+            border-radius: 1.5rem 1.5rem 0 0;
+            z-index: 1;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            color: var(--light);
+            margin: 0;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+        }
+
+        .modal-content {
+            padding: 2rem;
+        }
+
+        .modal-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .modal-tech-item {
+            padding: 0.5rem 1rem;
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: 9999px;
+            color: #a5b4fc;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-section {
+            margin-bottom: 2rem;
+        }
+
+        .modal-section h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-section ul {
+            padding-left: 1.5rem;
+        }
+
+        .modal-section li {
+            color: var(--light-gray);
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .modal-section li::before {
+            content: '▸';
+            color: var(--primary);
+            position: absolute;
+            left: -1.5rem;
+        }
+
+        .modal-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-profile {
+                order: -1;
+            }
+
+            .profile-container {
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--dark);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--border);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-section {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .content-wrapper {
+                padding: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-card {
+                grid-template-columns: 1fr;
+            }
+
+            .company-logo {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
+
+            .modal-container {
+                margin: 1rem;
+                max-height: 85vh;
+            }
+
+            .modal-header {
+                padding: 1.5rem 1.5rem 1rem;
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+            }
+
+            .contact-card {
+                min-height: 120px;
+            }
+
+            .contact-info a,
+            .contact-info p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .profile-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .modal-links {
+                flex-direction: column;
+            }
+
+            .modal-tech-stack {
+                gap: 0.5rem;
+            }
+
+            .modal-tech-item {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .contact-card {
+                padding: 1rem;
+            }
+
+            .contact-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
+
+            .tech-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .tech-icon:nth-child(1) {
+                top: 5%;
+                right: 5%;
+            }
+
+            .tech-icon:nth-child(2) {
+                top: 65%;
+                right: -5%;
+            }
+
+            .tech-icon:nth-child(3) {
+                bottom: 5%;
+                left: 15%;
+            }
+
+            .tech-icon:nth-child(4) {
+                top: 15%;
+                left: -5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-content">
+            <a href="#" class="logo">
+                <i class="fas fa-server"></i>
+                IY
+            </a>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#certifications" class="nav-link">Certifications</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#contact" class="btn btn-outline">Get in Touch</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <span class="badge">
+                    <i class="fas fa-rocket"></i> Available for new opportunities
+                </span>
+                <h1 class="hero-title">Izhar Yousaf</h1>
+                <h2 class="hero-subtitle">DevOps Specialist & Cloud Architect</h2>
+                <p class="hero-description">
+                    With 8+ years of experience in architecting, automating, and optimizing mission critical
+                    deployments on AWS and GCP. Expert in CI/CD pipelines, Kubernetes, Terraform, and cloud security.
+                    Adept at bridging the gap between development and operations to deliver scalable, secure, and high
+                    performing systems.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Contact Me
+                    </a>
+                    <a href="#projects" class="btn btn-secondary">
+                        <i class="fas fa-code-branch"></i> View Projects
+                    </a>
+                </div>
+                <div class="experience-badge">
+                    <div class="exp-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="exp-text">
+                        <strong>2017 - 2025</strong>
+                        <span>8+ years of DevOps experience</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-profile">
+                <div class="profile-container">
+                    <!-- Local Profile Image with Fallback -->
+                    <img src="images/profile.jpg" alt="Izhar Yousaf - DevOps Specialist" class="profile-image"
+                        onerror="this.onerror=null; this.classList.add('fallback'); this.innerHTML='IY';">
+                    <div class="profile-glow"></div>
+                    <div class="tech-icons">
+                        <!-- DevOps-specific icons -->
+                        <div class="tech-icon"><i class="fab fa-aws"></i></div>
+                        <div class="tech-icon"><i class="fa-brands fa-linux"></i></div>
+                        <div class="tech-icon"><i class="fab fa-docker"></i></div>
+                        <div class="tech-icon"><i class="fas fa-infinity"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">About Me</h2>
+                    <p class="section-subtitle">
+                        <br>DevOps Specialist & Cloud Architect with expertise in AWS, GCP, Kubernetes, and
+                        automation.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <p>
+                    I specialize in architecting, automating, and optimizing mission-critical deployments on AWS and
+                    GCP. With extensive experience in blockchain-based deployments, cost optimization, and high
+                    availability infrastructures, I bridge the gap between development and operations to deliver
+                    scalable, secure, and high-performing systems.
+                </p>
+                <p style="margin-top: 1.5rem;">
+                    My expertise spans across cloud platforms, container orchestration, CI/CD pipelines, infrastructure
+                    as code, and security implementations. I'm passionate about implementing best practices, reducing
+                    costs, and improving system reliability.
+                </p>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                    <div>
+                        <h4 style="color: var(--accent); margin-bottom: 0.5rem;">
+                            <i class="fas fa-map-marker-alt"></i> Location
+                        </h4>
+                        <p>Lahore, Pakistan</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent); margin-bottom: 0.5rem;">
+                            <i class="fas fa-graduation-cap"></i> Education
+                        </h4>
+                        <p>MS Computer Science</p>
+                        <p>University of the Punjab</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent); margin-bottom: 0.5rem;">
+                            <i class="fas fa-briefcase"></i> Experience
+                        </h4>
+                        <p>8+ Years DevOps & Cloud</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Professional Experience</h2>
+                <p class="section-subtitle">My career journey in DevOps and Cloud Architecture</p>
+            </div>
+            <div class="experience-list">
+                <!-- Dev & Mark -->
+                <div class="card experience-card">
+                    <div class="company-logo">DM</div>
+                    <div class="experience-content">
+                        <h4>DevOps Specialist & Cloud Architect</h4>
+                        <div class="experience-meta">
+                            <span>Dev & Mark • Remote</span>
+                            <span class="period">06/2022 – 11/2025</span>
+                        </div>
+                        <p class="experience-description">
+                            Designed and deployed enterprise-grade AWS cloud architectures, enhancing performance and
+                            resilience. Led a team of 5+ DevOps engineers, achieving 50% faster deployments through
+                            optimized CI/CD pipelines.
+                        </p>
+                        <ul class="achievements">
+                            <li>Implemented blockchain deployment frameworks with automated security scans and
+                                compliance checks</li>
+                            <li>Built monitoring solutions using Prometheus, Grafana, ELK, reducing incident response
+                                times</li>
+                            <li>Automated infrastructure provisioning with Terraform & CloudFormation, achieving 99.9%
+                                system reliability</li>
+                            <li>Led team of 5+ DevOps engineers in implementing best practices</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Vital Steer Technologies -->
+                <div class="card experience-card">
+                    <div class="company-logo">VS</div>
+                    <div class="experience-content">
+                        <h4>Sr. DevOps Engineer</h4>
+                        <div class="experience-meta">
+                            <span>Vital Steer Technologies Ltd.</span>
+                            <span class="period">04/2021 – 05/2022</span>
+                        </div>
+                        <p class="experience-description">
+                            Established HA/DR solutions, ensuring 99% uptime for mission-critical workloads. Migrated
+                            legacy on-prem systems to AWS, reducing infra costs by 20% and improving scalability.
+                        </p>
+                        <ul class="achievements">
+                            <li>Built CI/CD pipelines with AWS CodePipeline, Jenkins, Cloud Build, cutting deployment
+                                time significantly</li>
+                            <li>Conducted security audits, ensuring compliance with industry standards</li>
+                            <li>Implemented disaster recovery solutions for critical workloads</li>
+                            <li>Optimized cloud costs through resource management and automation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Euphoria XR -->
+                <div class="card experience-card">
+                    <div class="company-logo">EX</div>
+                    <div class="experience-content">
+                        <h4>DevOps Engineer</h4>
+                        <div class="experience-meta">
+                            <span>Euphoria XR</span>
+                            <span class="period">10/2018 – 03/2021</span>
+                        </div>
+                        <p class="experience-description">
+                            Migrated 5+ legacy systems to AWS, reducing costs by 30% and improving system reliability.
+                            Deployed .NET Core applications on Elastic Beanstalk and containerized ML workloads on GPU
+                            EC2.
+                        </p>
+                        <ul class="achievements">
+                            <li>Configured serverless apps (AWS Amplify, Lambda) and improved web security with AWS WAF
+                            </li>
+                            <li>Containerized machine learning workloads on GPU EC2 instances</li>
+                            <li>Implemented monitoring and alerting systems for production applications</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Approsoft -->
+                <div class="card experience-card">
+                    <div class="company-logo">AS</div>
+                    <div class="experience-content">
+                        <h4>DevOps Engineer</h4>
+                        <div class="experience-meta">
+                            <span>Approsoft</span>
+                            <span class="period">06/2017 – 09/2018</span>
+                        </div>
+                        <p class="experience-description">
+                            Automated WordPress and enterprise deployments with AWS CloudFormation, Lambda, and S3.
+                            Built
+                            resource scheduling with AWS Lambda & DynamoDB, improving cost efficiency.
+                        </p>
+                        <ul class="achievements">
+                            <li>Enhanced infrastructure performance with VPC, CodeDeploy, and AWS Systems Manager</li>
+                            <li>Implemented automated backup and recovery solutions</li>
+                            <li>Optimized AWS resource utilization for cost savings</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <p class="section-subtitle">Technologies and tools I work with daily</p>
+            </div>
+            <div class="skills-grid">
+                <!-- Cloud Platforms -->
+                <div class="card">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-cloud"></i> Cloud Platforms</h4>
+                        <div class="skill-items">
+                            <span class="skill-item">AWS <i class="fab fa-aws"></i></span>
+                            <span class="skill-item">GCP <i class="fab fa-google"></i></span>
+                            <span class="skill-item">EC2</span>
+                            <span class="skill-item">EKS</span>
+                            <span class="skill-item">Fargate</span>
+                            <span class="skill-item">S3</span>
+                            <span class="skill-item">VPC</span>
+                            <span class="skill-item">RDS</span>
+                            <span class="skill-item">Route53</span>
+                            <span class="skill-item">CloudFormation</span>
+                            <span class="skill-item">GKE</span>
+                            <span class="skill-item">Cloud Run</span>
+                            <span class="skill-item">Compute Engine</span>
+                            <span class="skill-item">Cloud Armor</span>
+                            <span class="skill-item">Cloud DNS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Containerization & Orchestration -->
+                <div class="card">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-cube"></i> Containerization & Orchestration</h4>
+                        <div class="skill-items">
+                            <span class="skill-item">Docker <i class="fab fa-docker"></i></span>
+                            <span class="skill-item">Docker Compose</span>
+                            <span class="skill-item">Kubernetes</span>
+                            <span class="skill-item">EKS</span>
+                            <span class="skill-item">GKE</span>
+                            <span class="skill-item">Helm</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CI/CD & Automation -->
+                <div class="card">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-sync-alt"></i> CI/CD & Automation</h4>
+                        <div class="skill-items">
+                            <span class="skill-item">GitHub Actions</span>
+                            <span class="skill-item">GitLab CI/CD</span>
+                            <span class="skill-item">Jenkins</span>
+                            <span class="skill-item">Bitbucket Pipeline</span>
+                            <span class="skill-item">ArgoCD</span>
+                            <span class="skill-item">Terraform</span>
+                            <span class="skill-item">Ansible</span>
+                            <span class="skill-item">AWS CodePipeline</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security -->
+                <div class="card">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-shield-alt"></i> Security</h4>
+                        <div class="skill-items">
+                            <span class="skill-item">AWS IAM</span>
+                            <span class="skill-item">AWS KMS</span>
+                            <span class="skill-item">Cloudflare</span>
+                            <span class="skill-item">VPNs (Wireguard, OpenVPN)</span>
+                            <span class="skill-item">Security Scans</span>
+                            <span class="skill-item">Compliance Checks</span>
+                            <span class="skill-item">AWS WAF</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monitoring & Logging -->
+                <div class="card">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-chart-line"></i> Monitoring & Logging</h4>
+                        <div class="skill-items">
+                            <span class="skill-item">Prometheus</span>
+                            <span class="skill-item">Grafana</span>
+                            <span class="skill-item">Loki</span>
+                            <span class="skill-item">ELK Stack</span>
+                            <span class="skill-item">AWS CloudWatch</span>
+                            <span class="skill-item">GCP Cloud Monitoring</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programming & Tools -->
+                <div class="card">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-code"></i> Programming & Tools</h4>
+                        <div class="skill-items">
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">Bash</span>
+                            <span class="skill-item">PowerShell</span>
+                            <span class="skill-item">Node.JS</span>
+                            <span class="skill-item">TypeScript</span>
+                            <span class="skill-item">ReactJS</span>
+                            <span class="skill-item">C#</span>
+                            <span class="skill-item">SonarQube</span>
+                            <span class="skill-item">Postman</span>
+                            <span class="skill-item">Confluence</span>
+                            <span class="skill-item">Obsidian</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Projects</h2>
+                <p class="section-subtitle">Highlighted deployments and implementations</p>
+            </div>
+            <div class="projects-grid">
+                <!-- Astoria Company -->
+                <div class="card project-card" data-project="astoria">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Astoria Company Web Application Deployment on AWS with EKS</h3>
+                    <p class="project-description">
+                        Deployed a scalable 3-tier application on AWS using EKS with ArgoCD. Configured auto-scaling,
+                        load balancing, and secured the application with IAM and VPC.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">AWS EKS</span>
+                        <span class="tech-tag">ArgoCD</span>
+                        <span class="tech-tag">Prometheus</span>
+                        <span class="tech-tag">Grafana</span>
+                        <span class="tech-tag">IAM</span>
+                        <span class="tech-tag">VPC</span>
+                    </div>
+                </div>
+
+                <!-- PORTALI Django -->
+                <div class="card project-card" data-project="portali">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                    </div>
+                    <h3 class="project-title">PORTALI Django Deployment on AWS ECS</h3>
+                    <p class="project-description">
+                        Automated AWS infrastructure with Terraform and deployed a containerized Django app on ECS using
+                        GitLab CI/CD. Implemented monitoring with Prometheus and Grafana.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">AWS ECS</span>
+                        <span class="tech-tag">Terraform</span>
+                        <span class="tech-tag">GitLab CI/CD</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                </div>
+
+                <!-- CIMAHub -->
+                <div class="card project-card" data-project="cimahub">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fa-brands fa-aws"></i>
+                        </div>
+                    </div>
+                    <h3 class="project-title">CIMAHub Deployment on AWS with EKS</h3>
+                    <p class="project-description">
+                        Deployed and managed a Python backend application on AWS EKS with auto-scaling and load
+                        balancing. Implemented IAM and VPC for secure access.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">AWS EKS</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Auto-scaling</span>
+                        <span class="tech-tag">Load Balancing</span>
+                        <span class="tech-tag">Prometheus</span>
+                    </div>
+                </div>
+
+                <!-- Total Scope -->
+                <div class="card project-card" data-project="total-scope">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Total Scope Deployment</h3>
+                    <p class="project-description">
+                        Built fully automated CI/CD pipeline for microservices applications using GitHub Actions and
+                        Jenkins. Integrated testing, security scans, and automated deployments.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">GitHub Actions</span>
+                        <span class="tech-tag">Jenkins</span>
+                        <span class="tech-tag">Microservices</span>
+                        <span class="tech-tag">CI/CD</span>
+                        <span class="tech-tag">Security Scans</span>
+                    </div>
+                </div>
+
+                <!-- Home Site -->
+                <div class="card project-card" data-project="home-site">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Home Site Blue/Green Deployment on AWS EC2</h3>
+                    <p class="project-description">
+                        Implemented zero-downtime deployment strategies using Blue/Green releases with Load Balancer,
+                        improving release confidence and reducing production risks.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">AWS EC2</span>
+                        <span class="tech-tag">Blue/Green</span>
+                        <span class="tech-tag">Load Balancer</span>
+                        <span class="tech-tag">Zero-downtime</span>
+                    </div>
+                </div>
+
+                <!-- SuccourAI -->
+                <div class="card project-card" data-project="succourai">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                    </div>
+                    <h3 class="project-title">SuccourAI Serverless Deployment</h3>
+                    <p class="project-description">
+                        Deployed serverless microservices on AWS Lambda. Implemented API Gateway, PostgreSQL, and S3 for
+                        a cost-efficient and scalable solution.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">AWS Lambda</span>
+                        <span class="tech-tag">API Gateway</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">S3</span>
+                        <span class="tech-tag">Serverless</span>
+                    </div>
+                </div>
+
+                <!-- Webgas on GKE -->
+                <div class="card project-card" data-project="webgas">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fab fa-google"></i>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Webgas on GKE</h3>
+                    <p class="project-description">
+                        Deployed Laravel app on GKE with Cloud SQL & autoscaling, optimizing costs. Implemented GitOps
+                        using ArgoCD to manage Kubernetes deployments.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">GKE</span>
+                        <span class="tech-tag">Laravel</span>
+                        <span class="tech-tag">Cloud SQL</span>
+                        <span class="tech-tag">ArgoCD</span>
+                        <span class="tech-tag">GitOps</span>
+                    </div>
+                </div>
+
+                <!-- Drupal Automation -->
+                <div class="card project-card" data-project="drupal">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fab fa-drupal"></i>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Drupal Automation</h3>
+                    <p class="project-description">
+                        Automated infrastructure provisioning with Terraform & Ansible on private networks for Drupal
+                        deployments.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Terraform</span>
+                        <span class="tech-tag">Ansible</span>
+                        <span class="tech-tag">Drupal</span>
+                        <span class="tech-tag">Automation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Certifications</h2>
+                <p class="section-subtitle">Professional certifications and achievements</p>
+            </div>
+            <div class="certifications-grid">
+                <div class="card certification-card">
+                    <div class="cert-badge">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>AWS Certified DevOps Professional</h4>
+                        <p>Advanced certification validating technical expertise in provisioning, operating, and
+                            managing distributed application systems on AWS</p>
+                    </div>
+                </div>
+
+                <div class="card certification-card">
+                    <div class="cert-badge">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>AWS Certified Solutions Architect - Associate</h4>
+                        <p>Validates ability to design and deploy scalable systems on AWS</p>
+                    </div>
+                </div>
+
+                <div class="card certification-card">
+                    <div class="cert-badge">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>PMI-Agile Certified Practitioner (PMI-ACP)</h4>
+                        <p>Certification validating knowledge of agile principles and practices</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Let's discuss your next cloud or DevOps project</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Email</h4>
+                        <a href="mailto:ch.izharyousaf@gmail.com">ch.izharyousaf@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Phone</h4>
+                        <a href="tel:+923004599102">+92 300 4599102</a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Location</h4>
+                        <p>Lahore, Pakistan</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Availability</h4>
+                        <p>Open for new opportunities</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/izharyousaf" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/izharyousaf" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <!-- <a href="https://twitter.com/izharyousaf" class="social-link" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a> -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">IY</div>
+        <p>© 2026 Izhar Yousaf. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; color: var(--gray); font-size: 0.8rem;">
+            DevOps Specialist & Cloud Architect | 8+ years of experience
+        </p>
+    </footer>
+
+    <!-- Project Details Modal -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalProjectTitle">Project Title</h2>
+                <button class="close-modal" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content" id="modalProjectContent">
+                <!-- Content will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        const navItems = document.querySelectorAll('.nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Sticky header on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.main-nav');
+            if (window.scrollY > 100) {
+                nav.style.padding = '1rem 2rem';
+                nav.style.backdropFilter = 'blur(20px)';
+            } else {
+                nav.style.padding = '1.5rem 2rem';
+                nav.style.backdropFilter = 'blur(10px)';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add animation to cards when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Observe contact cards for animation
+        document.querySelectorAll('.contact-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Project Details Modal Functionality
+        const modalOverlay = document.getElementById('projectModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const modalTitle = document.getElementById('modalProjectTitle');
+        const modalContent = document.getElementById('modalProjectContent');
+
+        // Project data
+        const projects = {
+            'astoria': {
+                title: 'Astoria Company Web Application Deployment on AWS with EKS',
+                description: 'A scalable 3-tier application deployment on AWS EKS with comprehensive monitoring and security.',
+                longDescription: 'Deployed a scalable 3-tier application on AWS using EKS with ArgoCD for GitOps. Configured auto-scaling, load balancing, and secured the application with IAM and VPC. Configured end-to-end monitoring and logging with Prometheus and Grafana. Set up custom dashboards and alerting rules to improve incident response time.',
+                techStack: ['AWS EKS', 'ArgoCD', 'Prometheus', 'Grafana', 'IAM', 'VPC', 'Auto-scaling', 'Load Balancing', 'Kubernetes', 'AWS'],
+                features: [
+                    '3-tier architecture deployment on AWS EKS',
+                    'GitOps implementation with ArgoCD',
+                    'Auto-scaling for both pods and nodes',
+                    'Comprehensive monitoring with Prometheus and Grafana',
+                    'Custom dashboards for application metrics',
+                    'Alerting rules for incident response',
+                    'Secure access with IAM policies and VPC configuration'
+                ],
+                achievements: [
+                    'Improved application scalability and performance',
+                    'Reduced deployment time with GitOps approach',
+                    'Enhanced monitoring and incident response capabilities',
+                    'Ensured high availability with auto-scaling and load balancing'
+                ]
+            },
+            'portali': {
+                title: 'PORTALI Django Deployment on AWS ECS',
+                description: 'Containerized Django application deployment on AWS ECS with automated infrastructure provisioning.',
+                longDescription: 'Automated AWS infrastructure with Terraform and deployed a containerized Django app on ECS using GitLab CI/CD. Implemented Prometheus and Grafana dashboards for monitoring and optimized costs with auto-scaling and efficient resource utilization.',
+                techStack: ['AWS ECS', 'Terraform', 'GitLab CI/CD', 'Django', 'Docker', 'Prometheus', 'Grafana', 'Auto-scaling'],
+                features: [
+                    'Infrastructure as Code with Terraform',
+                    'CI/CD pipeline with GitLab CI/CD',
+                    'Containerized Django application',
+                    'Monitoring with Prometheus and Grafana',
+                    'Cost optimization with auto-scaling',
+                    'Efficient resource utilization'
+                ],
+                achievements: [
+                    'Automated infrastructure provisioning',
+                    'Reduced deployment time with CI/CD',
+                    'Optimized cloud costs with auto-scaling',
+                    'Improved application monitoring capabilities'
+                ]
+            },
+            'cimahub': {
+                title: 'CIMAHub Deployment on AWS with EKS',
+                description: 'Python backend application deployment on AWS EKS with comprehensive security and monitoring.',
+                longDescription: 'Deployed and managed a Python backend application on AWS EKS with auto-scaling and load balancing. Implemented IAM and VPC for secure access, and integrated Prometheus with Grafana dashboards for monitoring, logging, and automated alerting to enhance incident response.',
+                techStack: ['AWS EKS', 'Python', 'Auto-scaling', 'Load Balancing', 'IAM', 'VPC', 'Prometheus', 'Grafana'],
+                features: [
+                    'Python backend application on EKS',
+                    'Horizontal pod auto-scaling',
+                    'Load balancing for high availability',
+                    'Secure access with IAM and VPC',
+                    'Comprehensive monitoring with Prometheus',
+                    'Grafana dashboards for visualization',
+                    'Automated alerting system'
+                ],
+                achievements: [
+                    'Achieved high availability with load balancing',
+                    'Improved security with IAM and VPC configurations',
+                    'Enhanced monitoring and incident response',
+                    'Optimized performance with auto-scaling'
+                ]
+            },
+            'total-scope': {
+                title: 'Total Scope Deployment with GitHub Actions and Jenkins',
+                description: 'Fully automated CI/CD pipeline for microservices applications with comprehensive testing.',
+                longDescription: 'Built a fully automated CI/CD pipeline for microservices applications. Integrated testing, security scans, and automated deployments, reducing release cycles by 50%. Designed and implemented a backup and disaster recovery strategy. Automated RDS snapshots and cross-region replication to ensure business continuity.',
+                techStack: ['GitHub Actions', 'Jenkins', 'Microservices', 'CI/CD', 'Security Scans', 'RDS', 'Backup', 'Disaster Recovery'],
+                features: [
+                    'Fully automated CI/CD pipeline',
+                    'Integration testing and security scans',
+                    'Automated deployments',
+                    'Backup and disaster recovery strategy',
+                    'Automated RDS snapshots',
+                    'Cross-region replication',
+                    'Microservices architecture'
+                ],
+                achievements: [
+                    'Reduced release cycles by 50%',
+                    'Improved application quality with automated testing',
+                    'Enhanced security with automated scans',
+                    'Ensured business continuity with disaster recovery'
+                ]
+            },
+            'home-site': {
+                title: 'Home Site Blue/Green Deployment Strategies on AWS EC2',
+                description: 'Zero-downtime deployment implementation using Blue/Green strategy on AWS EC2.',
+                longDescription: 'Implemented zero-downtime deployment strategies using Blue/Green releases with Load Balancer, improved release confidence and reduced production risks. This approach allowed for seamless updates without service interruption.',
+                techStack: ['AWS EC2', 'Blue/Green', 'Load Balancer', 'Zero-downtime', 'Deployment Strategies'],
+                features: [
+                    'Blue/Green deployment strategy',
+                    'Zero-downtime updates',
+                    'Load balancer configuration',
+                    'Automated traffic switching',
+                    'Rollback capabilities',
+                    'Production risk reduction'
+                ],
+                achievements: [
+                    'Eliminated downtime during deployments',
+                    'Improved release confidence',
+                    'Reduced production risks',
+                    'Enabled quick rollback if needed'
+                ]
+            },
+            'succourai': {
+                title: 'SuccourAI Serverless Deployment with AWS Lambda & API Gateway',
+                description: 'Serverless microservices deployment on AWS Lambda for cost-efficient scalability.',
+                longDescription: 'Deployed serverless microservices on AWS Lambda. Implemented API Gateway, PostgreSQL, and S3 for a cost-efficient and scalable solution. This architecture provided automatic scaling and reduced operational overhead.',
+                techStack: ['AWS Lambda', 'API Gateway', 'PostgreSQL', 'S3', 'Serverless', 'Microservices'],
+                features: [
+                    'Serverless architecture with AWS Lambda',
+                    'API Gateway for request management',
+                    'PostgreSQL database integration',
+                    'S3 for storage',
+                    'Automatic scaling',
+                    'Cost-efficient solution',
+                    'Reduced operational overhead'
+                ],
+                achievements: [
+                    'Achieved automatic scaling',
+                    'Reduced infrastructure costs',
+                    'Minimized operational overhead',
+                    'Improved application scalability'
+                ]
+            },
+            'webgas': {
+                title: 'Webgas on GKE',
+                description: 'Laravel application deployment on Google Kubernetes Engine with Cloud SQL integration.',
+                longDescription: 'Deployed Laravel app on GKE with Cloud SQL & autoscaling, optimizing costs. Implemented GitOps using ArgoCD to manage Kubernetes deployments. Enabled automated synchronization of infrastructure and applications directly from Git repositories.',
+                techStack: ['GKE', 'Laravel', 'Cloud SQL', 'ArgoCD', 'GitOps', 'Autoscaling', 'Kubernetes'],
+                features: [
+                    'Laravel application on GKE',
+                    'Cloud SQL database integration',
+                    'GitOps implementation with ArgoCD',
+                    'Autoscaling for cost optimization',
+                    'Automated synchronization from Git',
+                    'Kubernetes deployment management'
+                ],
+                achievements: [
+                    'Optimized costs with autoscaling',
+                    'Implemented GitOps practices',
+                    'Automated deployment synchronization',
+                    'Improved deployment reliability'
+                ]
+            },
+            'drupal': {
+                title: 'Drupal Automation',
+                description: 'Automated infrastructure provisioning for Drupal deployments on private networks.',
+                longDescription: 'Automated infra provisioning with Terraform & Ansible on private networks for Drupal content management system deployments. This automation streamlined the deployment process and ensured consistency across environments.',
+                techStack: ['Terraform', 'Ansible', 'Drupal', 'Automation', 'Private Networks'],
+                features: [
+                    'Infrastructure as Code with Terraform',
+                    'Configuration management with Ansible',
+                    'Drupal CMS deployment',
+                    'Private network configuration',
+                    'Automated provisioning',
+                    'Consistent environment setup'
+                ],
+                achievements: [
+                    'Streamlined deployment process',
+                    'Ensured environment consistency',
+                    'Reduced manual configuration errors',
+                    'Improved deployment speed'
+                ]
+            }
+        };
+
+        // Open modal when clicking on project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                const projectId = card.getAttribute('data-project');
+                openProjectModal(projectId);
+            });
+        });
+
+        // Open modal function
+        function openProjectModal(projectId) {
+            const project = projects[projectId];
+
+            if (!project) return;
+
+            modalTitle.textContent = project.title;
+
+            modalContent.innerHTML = `
+                <div class="modal-section">
+                    <h3><i class="fas fa-info-circle"></i> Overview</h3>
+                    <p>${project.description}</p>
+                    <p>${project.longDescription}</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-code"></i> Technology Stack</h3>
+                    <div class="modal-tech-stack">
+                        ${project.techStack.map(tech => `
+                            <span class="modal-tech-item">${tech}</span>
+                        `).join('')}
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-star"></i> Key Features</h3>
+                    <ul>
+                        ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-trophy"></i> Achievements</h3>
+                    <ul>
+                        ${project.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal function
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal events
+        closeModalBtn.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+
+</html>
